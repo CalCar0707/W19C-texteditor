@@ -3,10 +3,13 @@ import Editor from './editor';
 import './database';
 import '../css/style.css';
 
+//not working to display logo
 //import Logo from '../images/logo.png';
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
+
+//document.getElementById('logo').setAttribute('src', Logo);
 
 const loadSpinner = () => {
   const spinner = document.createElement('div');

@@ -3,8 +3,11 @@ import Editor from './editor';
 import './database';
 import '../css/style.css';
 
+import runtime from 'serviceworker-webpack-plugin/lib/runtime';
+
 //not working to display logo
 //import Logo from '../images/logo.png';
+
 
 const main = document.querySelector('#main');
 main.innerHTML = '';

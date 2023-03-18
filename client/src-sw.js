@@ -28,3 +28,9 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
 registerRoute();
+
+
+//assets: [
+  //'./main.256334452761ef349e91.js',
+//],
+//}

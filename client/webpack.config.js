@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
-import ServiceWorkerWebpackPlugin from 'serviceworker-webpack-plugin';
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 
@@ -19,8 +19,11 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      new ServiceWorkerWebpackPlugin({
-        entry: path.join(__dirname, 'src/sw.js'),
+      new WorkboxPlugin.GenerateSW({
+        // these options encourage the Service workers to get in there  fast
+        //and not allow any straggling old "sws" to hang around
+        clientsClaim: true,
+        skipWaiting: true,
       }),
     ],
 

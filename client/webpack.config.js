@@ -19,6 +19,10 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Contact Cards'
+      }),
       new WorkboxPlugin.GenerateSW({
         // these options encourage the Service workers to get in there  fast
         //and not allow any straggling old "sws" to hang around

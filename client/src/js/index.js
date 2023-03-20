@@ -3,7 +3,6 @@ import Editor from './editor';
 import './database';
 import '../css/style.css';
 
-import runtime from 'serviceworker-webpack-plugin/lib/runtime';
 
 //not working to display logo
 //import Logo from '../images/logo.png';
@@ -32,10 +31,23 @@ if (typeof editor === 'undefined') {
 }
 
 // Check if service workers are supported
-if ('serviceWorker' in navigator) {
+//if ('serviceWorker' in navigator) {
   // register workbox service worker
-  const workboxSW = new Workbox('/src-sw.js');
-  workboxSW.register();
-} else {
-  console.error('Service workers are not supported in this browser.');
+  //const workboxSW = new Workbox('/src-sw.js');
+  //workboxSW.register();
+//} else {
+  //console.error('Service workers are not supported in this browser.');
+//}
+const registerSW = () => {
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').then(registration => {
+      console.log('SW registered: ', registration);
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError);
+    });
+  });
 }
+};
+
+registerSW();

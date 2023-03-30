@@ -13,6 +13,14 @@ main.innerHTML = '';
 
 //document.getElementById('logo').setAttribute('src', Logo);
 
+if (module.hot) {
+  module.hot.accept((err) => {
+    if (err) {
+    console.error('Cannot apply HMR  update', err);
+    }
+  });
+};
+
 const loadSpinner = () => {
   const spinner = document.createElement('div');
   spinner.classList.add('spinner');

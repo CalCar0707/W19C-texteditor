@@ -22,7 +22,7 @@ module.exports = () => {
       // Webpack plugin that generates our html file and injects our bundles. 
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'Contact Cards'
+        title: 'Webpack Plugin',
       }),
   
   
@@ -44,6 +44,7 @@ module.exports = () => {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
         },
+        //allows you to write next-gen javascript
         {
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,

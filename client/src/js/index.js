@@ -5,7 +5,7 @@ import '../css/style.css';
 
 
 //not working to display logo
-//import Logo from '../images/logo.png';
+//import Logo from './images/logo.png';
 
 
 const main = document.querySelector('#main');

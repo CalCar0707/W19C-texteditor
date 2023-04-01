@@ -27,14 +27,14 @@ module.exports = () => {
         template: './index.html',
         title: 'Webpack Plugin',
       }),
-  
-  
-      new WorkboxPlugin.GenerateSW({
-        // these options encourage the Service workers to get in there  fast
-        //and not allow any straggling old "sws" to hang around
-        clientsClaim: true,
-        skipWaiting: true,
+
+      // Injects our custom service worker
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
+
+
     ],
 
     module: {
